@@ -1,7 +1,7 @@
 const express = require('express')
 require('dotenv').config()
 const mongoose = require('mongoose')
-const {Book} = require('./models/model')
+const cors = require('cors')
 const booksRoute = require('./routes/booksRoute');
 
 const app = express()
@@ -12,11 +12,13 @@ const port = process.env.PORT
 // app.use(cors())
 
 //Option 2: Allow custom origins
-app.use({
+app.use(
+  cors({
   origin: 'http://localhost:3000', // only clients with this origin can access this server
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type']
-})
+  })
+)
 
 // middleware for parsing request body
 app.use(express.json())
