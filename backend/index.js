@@ -9,16 +9,16 @@ const port = process.env.PORT
 
 // middleware to handle CORS errors
 // Option 1: Allow all origins with default cors settings
-// app.use(cors())
+app.use(cors())
 
 //Option 2: Allow custom origins
-app.use(
-  cors({
-  origin: 'http://localhost:3000', // only clients with this origin can access this server
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type']
-  })
-)
+// app.use(
+//   cors({
+//   origin: 'http://localhost:3000', // only clients with this origin can access this server
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   allowedHeaders: ['Content-Type']
+//   })
+// )
 
 // middleware for parsing request body
 app.use(express.json())
